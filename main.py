@@ -54,8 +54,13 @@ def solve(data: Data):
 
     # 3-3 约束
     for c in data.constraints:
-        print(f"约束: {c.name}, lhs={c.lhs}, sense={c.sense}, rhs={c.rhs}")
+        # 先构建表达式
         lhs = pulp.lpSum([c.lhs.get(k, 0) * vars[k] for k in vars])
+        # 再打印调试
+        print(f"约束: {c.name}, lhs={c.lhs}, sense={c.sense}, rhs={c.rhs}")
+        print(f"  本约束实际表达式 = {lhs} {c.sense} {c.rhs}")
+        print(f"  当前变量字典 vars = {vars}")
+        # 加入模型
         if c.sense == "<=":
             prob += lhs <= c.rhs
         elif c.sense == ">=":
