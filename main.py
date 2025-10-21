@@ -2,12 +2,11 @@ import pulp, uvicorn, sys
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
-import sys
-def print(x):
-    sys.stdout.write(x + "\n")
-    sys.stdout.flush()
+#import sys
+#def print(x):
+ #   sys.stdout.write(x + "\n")
+#    sys.stdout.flush()
 
-#print = lambda x: sys.stdout.write(x + "\n") and sys.stdout.flush()  # 强制刷日志
 # deploy trigger 2025-06-04 19:00
 # main.py
 from fastapi import FastAPI, HTTPException
