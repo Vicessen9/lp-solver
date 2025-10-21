@@ -3,7 +3,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
 print = lambda x: sys.stdout.write(x + "\n") and sys.stdout.flush()  # 强制刷日志
-
+# deploy trigger 2025-06-04 19:00
 # main.py
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
