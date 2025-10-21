@@ -27,10 +27,10 @@ class Data(BaseModel):
 # ---------- 核心求解接口 ----------
 @app.post("/solve")
 def solve(data: Data):
-    # 1. 打印原始 payload（Render Logs 里可见）
-    print("---- 收到原始 payload ----")
-    print(data.json(ensure_ascii=False))
-    print("--------------------------")
+    # 1. 日志
+    print("---- 收到原始 payload ----", flush=True)
+    print(data.json(), flush=True)
+    print("--------------------------", flush=True)
 
     # 2. 空值快速拦截
     if not data.objective:
