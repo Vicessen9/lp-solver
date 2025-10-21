@@ -1,3 +1,9 @@
+import pulp, uvicorn, sys
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel, Field
+
+print = lambda x: sys.stdout.write(x + "\n") and sys.stdout.flush()  # 强制刷日志
+
 # main.py
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
