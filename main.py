@@ -54,6 +54,7 @@ def solve(data: Data):
 
     # 3-3 约束
     for c in data.constraints:
+        print(f"约束: {c.name}, lhs={c.lhs}, sense={c.sense}, rhs={c.rhs}")
         lhs = pulp.lpSum([c.lhs.get(k, 0) * vars[k] for k in vars])
         if c.sense == "<=":
             prob += lhs <= c.rhs
