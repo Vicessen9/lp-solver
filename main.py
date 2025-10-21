@@ -16,13 +16,13 @@ app = FastAPI(title="lp-solver")
 class Constraint(BaseModel):
     name: str
     lhs: dict          # 变量系数表，例如 {"x":1,"y":2}
-    sense: str = Field(regex="^(<=|>=|==)$")
+    sense: str = Field(pattern="^(<=|>=|==)$")
     rhs: float
 
 class Data(BaseModel):
     objective: dict                         # 目标函数系数，例如 {"x":3,"y":2}
     constraints: list[Constraint]
-    sense: str = Field(regex="^(Minimize|Maximize)$")
+    sense: str = Field(pattern="^(Minimize|Maximize)$")
 
 # ---------- 核心求解接口 ----------
 @app.post("/solve")
